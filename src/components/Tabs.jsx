@@ -1,19 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 // Tabs Component
-// Manages tab state and displays content based on the active tab
-const Tabs = () => {
-    // State to track the active tab
-    // Default is 'T01'
-    const [activeTab, setActiveTab] = useState('T01');
-
-    // List of tabs
-    const tabs = [
-        { id: 'T01', label: 'T01' },
-        { id: 'T02', label: 'T02' },
-        { id: 'T03', label: 'T03' },
-    ];
-
+// A controlled component that displays tabs and notifies parent on change
+const Tabs = ({ activeTab, onTabChange, tabs }) => {
     return (
         <div className="w-full">
             {/* Tab Navigation Header */}
@@ -21,7 +10,7 @@ const Tabs = () => {
                 {tabs.map((tab) => (
                     <button
                         key={tab.id}
-                        onClick={() => setActiveTab(tab.id)}
+                        onClick={() => onTabChange(tab.id)}
                         className={`
               px-6 py-3 font-medium text-sm focus:outline-none transition-colors duration-200
               ${activeTab === tab.id
@@ -33,30 +22,6 @@ const Tabs = () => {
                         {tab.label}
                     </button>
                 ))}
-            </div>
-
-            {/* Tab Content Area */}
-            <div className="bg-white p-6 rounded-lg border border-slate-100 shadow-sm min-h-[200px]">
-                {activeTab === 'T01' && (
-                    <div>
-                        <h3 className="text-lg font-medium text-slate-800 mb-2">Content for T01</h3>
-                        <p className="text-slate-600">This is the placeholder content for the first tab (T01).</p>
-                    </div>
-                )}
-
-                {activeTab === 'T02' && (
-                    <div>
-                        <h3 className="text-lg font-medium text-slate-800 mb-2">Content for T02</h3>
-                        <p className="text-slate-600">This is the placeholder content for the second tab (T02).</p>
-                    </div>
-                )}
-
-                {activeTab === 'T03' && (
-                    <div>
-                        <h3 className="text-lg font-medium text-slate-800 mb-2">Content for T03</h3>
-                        <p className="text-slate-600">This is the placeholder content for the third tab (T03).</p>
-                    </div>
-                )}
             </div>
         </div>
     );
