@@ -1,16 +1,80 @@
-# React + Vite
+# React Dashboard UI Task
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📋 Project Overview
 
-Currently, two official plugins are available:
+This project is a modern, responsive dashboard application built as part of a frontend assessment. It features a comprehensive "Main Details" form with tabbed navigation, interactive map selection, and dynamic item management. The UI is crafted with a focus on user experience, form validation, and clean component architecture.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Key Features
 
-## React Compiler
+- **Multi-Tab Interface**: Seamless switching between Main Details, Social Links, and Documents.
+- **Interactive Map Integration**: 
+  - Visual location picker using **Leaflet**.
+  - **Geosearch** functionality with autocomplete and debounce.
+  - Automatic latitude/longitude synchronization.
+- **Complex Form Handling**:
+  - Real-time validation (Email, Phone, Postal Code).
+  - Dynamic "Sub Details" section for managing multiple product items.
+  - Auto-calculated fields and error handling.
+- **Responsive Design**: Fully responsive layout using **Tailwind CSS**.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+- **Framework**: [React](https://reactjs.org/) (Vite)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Maps**: [React Leaflet](https://react-leaflet.js.org/) & [Leaflet Geosearch](https://github.com/smeijer/leaflet-geosearch)
+- **Icons**: Heroicons / SVG
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ⚙️ Setup Instructions
+
+1.  **Clone the repository**
+    ```bash
+    git clone <repository-url>
+    cd ui-task-react
+    ```
+
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
+
+3.  **Run the development server**
+    ```bash
+    npm run dev
+    ```
+
+4.  **Open in Browser**
+    Visit `http://localhost:5173` to view the application.
+
+## 📂 Folder Structure
+
+```
+src/
+├── components/        # Reusable UI components
+│   ├── InputField.jsx
+│   ├── MapPicker.jsx  # Map with Search & Click logic
+│   ├── Tabs.jsx
+│   ├── TextAreaField.jsx
+│   └── ...
+├── pages/
+│   └── Dashboard.jsx  # Main Page Controller & Form State
+├── App.jsx            # Main App Entry
+└── main.jsx           # Entry point & Global Styles
+```
+
+## 📸 Screenshots
+
+| Dashboard View | Map Selection |
+|:---:|:---:|
+| ![Dashboard Mockup](https://via.placeholder.com/600x400?text=Dashboard+UI) | ![Map Interaction](https://via.placeholder.com/600x400?text=Map+Picker) |
+
+*Note: Replace placeholder links with actual screenshots of the application.*
+
+## ⚠️ Known Limitations
+
+- **UI Only**: This is a frontend-only implementation; data is not persisted to a backend database.
+- **Mock Data**: "Save" actions currently log data to the console and trigger browser alerts.
+- **Map Provider**: Uses OpenStreetMap (free tier); search results may vary compared to Google Maps.
+
+---
+
+**Developed by [Your Name]**
